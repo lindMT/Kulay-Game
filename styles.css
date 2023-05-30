@@ -4,14 +4,13 @@ body{
 }
 
 .dice-container {
-  width: 70%;
+  width: 70vw;
   margin: auto;
   text-align: center;
   display: grid;
   grid-template-columns: auto auto auto;
   background-color: #29606d;
   padding: 10px;
-  margin-bottom: 5rem;
   border-radius: 20px;
 }
 
@@ -21,9 +20,19 @@ body{
 }
 
 .button-container {
+  padding: 2vw;
   text-align: center;
   display: inline-block;
-  width: 15rem;
+  width: 15vw;
+}
+
+hr {
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+button{
+  width: 100%;
 }
 
 h1 {
@@ -47,6 +56,7 @@ h2 {
   color: #F6F6FF;
 }
 
+
 p {
   font-size: 2rem;
   color: #F6F6FF;
@@ -54,14 +64,9 @@ p {
 }
 
 img {
-  width: 20rem;
+  margin: 1vw;
+  width: 20vw;
   border-radius: 20%;
-}
-
-button{
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 100%;
 }
 
 .white {

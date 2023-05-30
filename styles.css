@@ -34,6 +34,15 @@ h1 {
   color: #4ECCA3;
 }
 
+a {
+  text-decoration: none;
+  margin: 10px;
+  font-family: 'Lobster', cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 2rem;
+  color: #F6F6FF;
+}
+
 h2 {
   color: #F6F6FF;
 }

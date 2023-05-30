@@ -15,9 +15,19 @@ body{
 }
 
 .dice {
-  text-align: center;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vw;
+  width: 20vw;
+  background-color: #F6F6FF;
+  margin: 1vw;
+  border-radius: 20%;
+  background-color: gray;
+  font-size: 5rem;
+  color: #F6F6FF;
 }
+
 
 .button-container {
   padding: 2vw;

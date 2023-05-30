@@ -6,14 +6,28 @@ $(document).ready(function()
     var dice1 = 0
     var dice2 = 0
     var dice3 = 0
+    var colorArray = [  "Gray",
+                        "Green", "Purple", "Yellow",
+                        "Blue", "Red", "Orange"];
+
+    var hexColorArray = [   "#808080",
+                            "#00BF63", "#8C52FF", "#DFB300",
+                            "#004AAD", "#FF3131", "#FF914D"];
+    
     
     function play(){
         dice1 = Math.floor(Math.random() * 6) + 1;
         dice2 = Math.floor(Math.random() * 6) + 1;
         dice3 = Math.floor(Math.random() * 6) + 1;
-        document.getElementById("dice1").src = "images/"+ dice1 +".png";
-        document.getElementById("dice2").src = "images/"+ dice2 +".png";
-        document.getElementById("dice3").src = "images/"+ dice3 +".png";
+        document.getElementById("dice1").style.backgroundColor = hexColorArray[dice1];
+        document.getElementById("dice2").style.backgroundColor = hexColorArray[dice2];
+        document.getElementById("dice3").style.backgroundColor = hexColorArray[dice3];
+
+        document.getElementById("dice1").innerHTML = colorArray[dice1];
+        document.getElementById("dice2").innerHTML = colorArray[dice2];
+        document.getElementById("dice3").innerHTML = colorArray[dice3];
+
+
         checkWin()
     }
 
@@ -21,9 +35,14 @@ $(document).ready(function()
         dice1 = 0
         dice2 = 0
         dice3 = 0
-        document.getElementById("dice1").src = "images/0.png";
-        document.getElementById("dice2").src = "images/0.png";
-        document.getElementById("dice3").src = "images/0.png";
+        document.getElementById("dice1").style.backgroundColor = hexColorArray[0];
+        document.getElementById("dice2").style.backgroundColor = hexColorArray[0];
+        document.getElementById("dice3").style.backgroundColor = hexColorArray[0];
+
+        document.getElementById("dice1").innerHTML = "";
+        document.getElementById("dice2").innerHTML = "";
+        document.getElementById("dice3").innerHTML = "";
+
         document.getElementById("win1").innerHTML = "Winnings: 0x"
         document.getElementById("win2").innerHTML = "Winnings: 0x"
         document.getElementById("win3").innerHTML = "Winnings: 0x"

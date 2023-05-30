@@ -24,7 +24,7 @@ body{
   margin: 1vw;
   border-radius: 20%;
   background-color: gray;
-  font-size: 5rem;
+  font-size: 5vw;
   color: #F6F6FF;
 }
 
@@ -49,8 +49,13 @@ h1 {
   margin: 30px;
   font-family: 'Lobster', cursive;
   text-shadow: 5px 0 #232931;
-  font-size: 8rem;
+  font-size: 9vw;
   color: #4ECCA3;
+}
+
+h2 {
+  color: #F6F6FF;
+  font-size: 2vw;
 }
 
 a {
@@ -58,17 +63,12 @@ a {
   margin: 10px;
   font-family: 'Lobster', cursive;
   text-shadow: 5px 0 #232931;
-  font-size: 2rem;
+  font-size: 2vw;
   color: #F6F6FF;
 }
-
-h2 {
-  color: #F6F6FF;
-}
-
 
 p {
-  font-size: 2rem;
+  font-size: 2vw;
   color: #F6F6FF;
   font-family: 'Indie Flower', cursive;
 }

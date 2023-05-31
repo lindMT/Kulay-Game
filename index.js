@@ -17,6 +17,7 @@ $(document).ready(function()
     var diceIdArray = ["dice1", "dice2", "dice3"];                
 
     function play(){
+        document.getElementById("resetButton").disabled = true;
         reset()
         
         for(i=0; i<3; i++){
@@ -86,6 +87,7 @@ $(document).ready(function()
         
         var winnerSFX = new Audio('SFX/winner.mp3');
         winnerSFX.play();
+        document.getElementById("resetButton").disabled = false;
 
     }
 

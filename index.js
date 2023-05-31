@@ -3,9 +3,8 @@ $(document).ready(function()
     document.getElementById("playButton").addEventListener("click", play);
     document.getElementById("resetButton").addEventListener("click", reset);
 
-    var dice1 = 0
-    var dice2 = 0
-    var dice3 = 0
+    var currentDice = 0
+
     var colorArray = [  "Gray",
                         "Green", "Purple", "Yellow",
                         "Blue", "Red", "Orange"];
@@ -13,28 +12,43 @@ $(document).ready(function()
     var hexColorArray = [   "#808080",
                             "#00BF63", "#8C52FF", "#DFB300",
                             "#004AAD", "#FF3131", "#FF914D"];
-    
-    
+
+    var diceNumberArray = [0, 0, 0];
+    var diceIdArray = ["dice1", "dice2", "dice3"];                
+
+    setTimeout(play, 1000);
+    setTimeout(rollDice, 1000);
+
     function play(){
-        dice1 = Math.floor(Math.random() * 6) + 1;
-        dice2 = Math.floor(Math.random() * 6) + 1;
-        dice3 = Math.floor(Math.random() * 6) + 1;
-        document.getElementById("dice1").style.backgroundColor = hexColorArray[dice1];
-        document.getElementById("dice2").style.backgroundColor = hexColorArray[dice2];
-        document.getElementById("dice3").style.backgroundColor = hexColorArray[dice3];
+        reset()
+        
+        for(i=0; i<3; i++){
+            diceNumberArray[i] = Math.floor(Math.random() * 6) + 1;
+        }
 
-        document.getElementById("dice1").innerHTML = colorArray[dice1];
-        document.getElementById("dice2").innerHTML = colorArray[dice2];
-        document.getElementById("dice3").innerHTML = colorArray[dice3];
+        setTimeout(rollDice, 2000);
+    }  
 
-
-        checkWin()
+    function rollDice(){
+        if (currentDice<3){
+            var diceSFX = new Audio('SFX/diceRoll.mp3');
+            diceSFX.play();
+            document.getElementById(diceIdArray[currentDice]).style.backgroundColor = hexColorArray[diceNumberArray[currentDice]];
+            document.getElementById(diceIdArray[currentDice]).innerHTML = colorArray[diceNumberArray[currentDice]];
+            currentDice++;
+            isRolling = false;
+            setTimeout(rollDice, 1000);
+        } else{
+            checkWin()
+        }
     }
 
+
     function reset(){
-        dice1 = 0
-        dice2 = 0
-        dice3 = 0
+        for(i=0; i<3; i++){
+            diceNumberArray[i] = 0;
+        }
+        currentDice = 0
         document.getElementById("dice1").style.backgroundColor = hexColorArray[0];
         document.getElementById("dice2").style.backgroundColor = hexColorArray[0];
         document.getElementById("dice3").style.backgroundColor = hexColorArray[0];
@@ -54,22 +68,27 @@ $(document).ready(function()
             document.getElementById("win" + i).innerHTML = "Winnings: 2x"
         }
 
-        if (dice1 == dice2){
+        currentDice = 0
+
+        if (diceNumberArray[0] == diceNumberArray[1]){
             document.getElementById("win1").innerHTML = "Winnings: 3x"
             document.getElementById("win2").innerHTML = "Winnings: 3x"
-        } else if (dice2 == dice3){
+        } else if (diceNumberArray[1] == diceNumberArray[2]){
             document.getElementById("win2").innerHTML = "Winnings: 3x"
             document.getElementById("win3").innerHTML = "Winnings: 3x"
-        } else if (dice1 == dice3){
+        } else if (diceNumberArray[0] == diceNumberArray[2]){
             document.getElementById("win1").innerHTML = "Winnings: 3x"
             document.getElementById("win3").innerHTML = "Winnings: 3x"
         }
-        
-        if(dice1 == dice2 && dice2 == dice3){
+
+        if(diceNumberArray[0] == diceNumberArray[1] && diceNumberArray[1] == diceNumberArray[2]){
             document.getElementById("win1").innerHTML = "Winnings: 4x"
             document.getElementById("win2").innerHTML = "Winnings: 4x"
             document.getElementById("win3").innerHTML = "Winnings: 4x"
         }
+        
+        var winnerSFX = new Audio('SFX/winner.mp3');
+        winnerSFX.play();
 
     }
 

@@ -16,9 +16,6 @@ $(document).ready(function()
     var diceNumberArray = [0, 0, 0];
     var diceIdArray = ["dice1", "dice2", "dice3"];                
 
-    setTimeout(play, 1000);
-    setTimeout(rollDice, 1000);
-
     function play(){
         reset()
         

@@ -1,9 +1,7 @@
-$(document).ready(function()
-{
+$(document).ready(function(){
+
     document.getElementById("playButton").addEventListener("click", play);
     document.getElementById("resetButton").addEventListener("click", reset);
-
-    var currentDice = 0
 
     var colorArray = [  "Gray",
                         "Green", "Purple", "Yellow",
@@ -13,10 +11,12 @@ $(document).ready(function()
                             "#00BF63", "#8C52FF", "#DFB300",
                             "#004AAD", "#FF3131", "#FF914D"];
 
+    var currentDice = 0
     var diceNumberArray = [0, 0, 0];
     var diceIdArray = ["dice1", "dice2", "dice3"];                
 
     function play(){
+        document.getElementById("playButton").disabled = true;
         document.getElementById("resetButton").disabled = true;
         reset()
         
@@ -87,6 +87,7 @@ $(document).ready(function()
         
         var winnerSFX = new Audio('SFX/winner.mp3');
         winnerSFX.play();
+        document.getElementById("playButton").disabled = false;
         document.getElementById("resetButton").disabled = false;
 
     }
